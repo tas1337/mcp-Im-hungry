@@ -2,6 +2,17 @@
 
 An MCP server that connects AI agents to food delivery APIs and user data.
 
+## Table of Contents
+
+- [What is MCP?](#what-is-mcp)
+- [What This Server Does](#what-this-server-does)
+- [Quick Start](#quick-start)
+- [Project Structure](#project-structure)
+- [Tools](#tools)
+- [Resources](#resources)
+- [Connect to Cursor](#connect-to-cursor)
+- [External Resources](#external-resources)
+
 ## What is MCP?
 
 MCP (Model Context Protocol) is a protocol for AI agents to talk to data sources. Think USB-C for AI - one standard interface that works with any data source.
@@ -188,7 +199,7 @@ To use real APIs instead of mock data:
 3. Update `src/resources.ts` - replace mock data with database queries
 4. Restart the server
 
-## Resources
+## External Resources
 
 - [MCP Specification](https://modelcontextprotocol.io)
 - [MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
