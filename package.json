@@ -1,0 +1,40 @@
+{
+  "name": "mcp-im-hungry",
+  "version": "1.0.0",
+  "description": "MCP server that connects AI agents to food delivery APIs, user preferences, and location data - Part 1 of the Web 4.0 agent stack",
+  "homepage": "https://github.com/tas1337/mcp-Im-hungry#readme",
+  "bugs": {
+    "url": "https://github.com/tas1337/mcp-Im-hungry/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tas1337/mcp-Im-hungry.git"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "mcp-im-hungry": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "inspect": "npx @modelcontextprotocol/inspector node dist/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "agents",
+    "food-delivery",
+    "doordash",
+    "ubereats"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
