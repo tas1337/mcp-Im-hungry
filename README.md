@@ -2,6 +2,12 @@
 
 An MCP server that connects AI agents to food delivery APIs and user data.
 
+## Demo: How to Talk to Cursor
+
+![Order it! Demo](./images/Order-it!.gif)
+
+This GIF demonstrates exactly how to interact with Cursor using this MCP server. Simply open the Agents interface in Cursor and start chatting!
+
 ## Table of Contents
 
 - [What is MCP?](#what-is-mcp)
