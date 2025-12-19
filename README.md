@@ -15,7 +15,7 @@ An MCP server that connects AI agents to food delivery APIs and user data.
 
 ## What is MCP?
 
-MCP (Model Context Protocol) is a protocol for AI agents to talk to data sources. Think USB-C for AI - one standard interface that works with any data source.
+MCP (Model Context Protocol) is a protocol for AI agents to talk to data sources.  One standard interface that works with any data source.
 
 Before MCP, connecting an AI to DoorDash + Uber Eats + your user database meant writing 3 different integrations. With MCP, you write one integration per service, and any AI that speaks MCP can use them all.
 
