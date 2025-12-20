@@ -1,4 +1,4 @@
-import { Server } from '@modelcontextprotocol/sdk/server/index.js';
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import {
   CallToolRequestSchema,
@@ -30,8 +30,8 @@ import {
 // Creates and configures the MCP server
 // Each setRequestHandler registers a different type of request the AI can make
 // MCP protocol has 4 different request types, so we need 4 handlers
-export async function createServer(): Promise<Server> {
-  const server = new Server(
+export async function createServer(): Promise<McpServer> {
+  const mcpServer = new McpServer(
     {
       name: 'mcp-im-hungry',
       version: '1.0.0',
@@ -43,6 +43,9 @@ export async function createServer(): Promise<Server> {
       },
     }
   );
+  
+  // Access the underlying Server instance to use setRequestHandler
+  const server = mcpServer.server;
 
   // Handler 1: ListToolsRequest - AI asks "What tools do you have?"
   // Returns the list of available tools (search_restaurants, get_menu, etc.)
@@ -122,12 +125,12 @@ export async function createServer(): Promise<Server> {
     }
   });
 
-  return server;
+  return mcpServer;
 }
 
 export async function startServer(): Promise<void> {
-  const server = await createServer();
+  const mcpServer = await createServer();
   const transport = new StdioServerTransport();
-  await server.connect(transport);
+  await mcpServer.connect(transport);
   console.error('MCP Im Hungry server running on stdio');
 }
