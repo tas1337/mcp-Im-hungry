@@ -29,9 +29,13 @@ Before MCP, connecting an AI to DoorDash + Uber Eats + your user database meant 
 
 ![Demo Screenshot](./images/Chart.jpg)
 
-The server aggregates data from multiple delivery services into a unified interface. The agent uses this data to make decisions.
+This MCP server **calls APIs directly** (or uses mock data) to aggregate data from multiple delivery services into a unified interface. The AI assistant uses this data to make decisions.
 
-**Note:** This is a tutorial/example implementation using mock data. 
+**Key Points:**
+- **Direct API calls**: This server calls food delivery APIs directly (DoorDash, Uber Eats, Grubhub)
+- **No agents**: This server does NOT use agents or A2A protocol
+- **Mock data**: Currently uses mock data for demonstration purposes
+- **For comparison**: See `mcp-a2a-im-hungry` for an example that uses A2A protocol to call agents instead 
 
 ## Quick Start
 
@@ -57,10 +61,12 @@ src/
 ├── server.ts         # MCP server setup and handlers
 ├── tools.ts          # Tool definitions and handlers
 ├── resources.ts      # Resource definitions and readers
-├── api-clients.ts    # API client functions (currently returns mock data)
+├── api-clients.ts    # API client functions (calls APIs directly, currently returns mock data)
 ├── mock-data.ts      # All mock data (restaurants, menus, user data)
 └── types.ts          # TypeScript type definitions
 ```
+
+**Architecture:** This server calls APIs directly via `api-clients.ts`. It does NOT use agents or A2A protocol.
 
 ## Tools
 
@@ -84,11 +90,14 @@ src/
 1. User: "I want a cheeseburger"
 2. AI reads `user://location` → San Francisco, CA
 3. AI calls `search_restaurants({ query: "burger" })`
-4. Server queries DoorDash + Uber Eats + Grubhub (currently returns mock data)
+4. **Server directly calls APIs** (DoorDash, Uber Eats, Grubhub) - currently returns mock data
 5. Returns: In-N-Out (4.8⭐), Shake Shack (4.6⭐), Five Guys (4.3⭐)...
 6. AI calls `get_menu({ restaurantId: "ue-in-n-out" })`
-7. Returns: Double-Double ($5.90), Cheeseburger ($3.65)...
-8. AI recommends based on user preferences
+7. **Server directly calls API** - returns menu data
+8. Returns: Double-Double ($5.90), Cheeseburger ($3.65)...
+9. AI recommends based on user preferences
+
+**Note:** This server makes direct API calls. For an agent-based approach using A2A protocol, see `mcp-a2a-im-hungry`.
 
 ## Connect to Cursor
 
