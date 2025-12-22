@@ -1,5 +1,28 @@
+// =============================================================================
+// API CLIENTS
+// =============================================================================
+// Functions that call food delivery APIs (DoorDash, UberEats, Grubhub).
+//
+// CURRENT STATE:
+// - All functions return mock data (from mock-data.ts)
+// - TODO: Replace with real API calls
+//
+// HOW IT WORKS:
+// - Each service has a search function (finds restaurants)
+// - Each service has a getMenu function (gets restaurant menu)
+// - Functions are called by tools.ts handlers
+//
+// KEY DIFFERENCE FROM A2A VERSION:
+// - Basic MCP: Direct API calls (this file)
+// - A2A MCP:   Calls other agents via A2A protocol (no direct API calls)
+// =============================================================================
+
 import type { Restaurant, Menu } from './types.js';
 import { getMockRestaurants, getMockMenu } from './mock-data.js';
+
+// ---------------------------------------------------------------------------
+// DOORDASH API CLIENT
+// ---------------------------------------------------------------------------
 
 export async function searchDoorDash(
   query: string,
@@ -18,6 +41,10 @@ export async function getDoorDashMenu(
   return getMockMenu(restaurantId);
 }
 
+// ---------------------------------------------------------------------------
+// UBER EATS API CLIENT
+// ---------------------------------------------------------------------------
+
 export async function searchUberEats(
   query: string,
   location: string,
@@ -34,6 +61,10 @@ export async function getUberEatsMenu(
   // TODO: Add real Uber Eats menu API call here
   return getMockMenu(restaurantId);
 }
+
+// ---------------------------------------------------------------------------
+// GRUBHUB API CLIENT
+// ---------------------------------------------------------------------------
 
 export async function searchGrubhub(
   query: string,
